@@ -194,11 +194,10 @@ span + .entry-title {
 	p:first-child {
 		margin-top: 0;
 	}
-/*
+
 	@include media($large) {
 		@include span-columns(12);
 	}
-	*/
 
 	/* nice link underlines */
   p > a,
