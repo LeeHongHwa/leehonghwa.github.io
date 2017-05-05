@@ -6,6 +6,7 @@ description: Describe your website here.
 logo: site-logo.png
 search: true
 url: https://leehonghwa.github.io
+baseurl: ""
 
 # Jekyll configuration
 
