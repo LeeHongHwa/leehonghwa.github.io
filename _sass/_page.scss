@@ -86,6 +86,7 @@ span + .entry-title {
 	font-weight: 400;
 	line-height: 1;
 	letter-spacing: -3px;
+	text-align: left;
 
 	a {
 		color: $black;
@@ -195,7 +196,7 @@ span + .entry-title {
 	}
 
 	@include media($large) {
-		@include span-columns(9.5);
+		@include span-columns(12);
 	}
 
 	/* nice link underlines */
@@ -240,7 +241,6 @@ span + .entry-title {
 	}
 
 	.entry-title {
-		text-align: center;
 		max-width: 100%;
 	}
 
