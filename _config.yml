@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title: Site Title
+title: iOSHong Blog
 locale: en_US
-description: Describe your website here.
+description: 애플 개발자 문서 한글 번역
 logo: site-logo.png
 search: true
 url: https://leehonghwa.github.io
@@ -37,13 +37,13 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: Your Name
+  name: lee hong hwa
   avatar: bio-photo.jpg
-  email: you@email.com
+  email: lyhonghwa@google.com
   disqus-shortname:
   twitter: #username
   facebook: #username
-  github: #username
+  github: leehonghwa
   stackexchange: #http://stackoverflow.com/users/123456/username
   linkedin: #username
   instagram: #username
