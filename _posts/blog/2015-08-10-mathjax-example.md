@@ -1,32 +1,61 @@
 ---
 layout: post
-title: "MathJax Example"
+title: "loadView"
 modified:
 categories: blog
 excerpt:
-tags: []
+tags: [UIKit]
 image:
   feature:
-date: 2015-08-10T08:08:50-04:00
+date: 2017-01-05T22:09:00-04:00
 ---
 
-[MathJax](http://www.mathjax.org/) is a simple way of including Tex/LaTex/MathML based mathematics in HTML webpages. To get up and running you need to include the MathJax script in the header of your github pages page, and then write some maths. For LaTex, there are two delimiters you need to know about, one for block or displayed mathematics `\[ ... \]`, and the other for inline mathematics `\( ... \)`.
+컨트롤러가 관리하는 뷰를 만드는 역할을 한다.
 
-## Usage
 
-To enable MathJax support be sure Kramdown is your Markdown flavor of choice and MathJax is set to true in your `_config.yml` file.
+사용자는 직접적으로 메서드를 호출하면 안된다.
+현재 뷰 프로퍼티가 nil이면서 뷰 프로퍼티가 요청될 때 뷰 컨트롤러는 이 메서드를 호출한다.
+이 메서드는 뷰를 만들거나 불러오고 그 뷰들을 뷰 프로퍼티에 할당한다.
 
-```yaml
-markdown: kramdown
-mathjax: true
-```
 
-```
-Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
-\\[ \frac{1}{n^{2}} \\]
-```
+만약에 뷰 컨트롤러가 연관된 nib file을 가지고 있다면 이 메서드는 nib file로부터 view를 불러온다.
+nibName 프로퍼티가 non-nil 값을 리턴하면 뷰 컨트롤러는 연관된 nib file을 가진다.
 
-Here is an example MathJax inline rendering \\( 1/x^{2} \\), and here is a block rendering: 
-\\[ \frac{1}{n^{2}} \\]
+nibName 프로퍼티의 리턴값이 non-nil이 되기 위해서는
+뷰 컨트롤러가 스토리보드로부터 객체화 되었거나
+initWithNibName:bundle: 메서드를 사용해 명시적으로 뷰 컨트롤러를 nib file에 할당하거나
 
-The only thing to look out for is the escaping of the backslash when using markdown, so the delimiters become `\\[ ... \\]` and `\\( ... \\)` for inline and block maths respectively.
+또는 iOS가 앱의 번들 내에 있는 nib file(뷰 컨트롤러의 클래스 이름과 같은 nib file)을 찾아야 한다.
+
+
+
+대신에 뷰 컨트롤러 연관된 nib file을 가지고 있지 않다면 이 메서드는 일반적인 UIView 객체를 만든다.
+
+
+
+만약에 뷰와 뷰 컨트롤러를 만들기 위해서 Interface Builder를 사용했다면 이 메서드를 override 하지 말아라.
+
+
+
+사용자는 손수 뷰들을 만들기 위해서 이 메서드를 override 할 수 있다.
+
+override를 하려면 view hierarchy상의 root 뷰를 뷰 프로퍼티에 할당해라
+
+만든 뷰는 유일한 객체이여야 하고 다른 뷰 컨트롤러 객체와 공유되면 안된다.
+
+메서드를 커스텀하게 구현 할때는 super를 호출하면 안된다.
+
+
+
+만약에 뷰에 관한 추가적인 초기화를 수행하려면 viewDidLoad 메서드를 사용해야 한다.
+
+
+
+참고: [https://developer.apple.com/reference/uikit/uiviewcontroller/1621454-loadview][apple-doc]
+
+
+
+
+
+잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.
+[apple-doc]: https://developer.apple.com/reference/uikit/uiviewcontroller/1621454-loadview
