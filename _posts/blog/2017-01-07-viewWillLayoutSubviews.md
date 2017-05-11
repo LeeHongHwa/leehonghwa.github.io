@@ -4,7 +4,7 @@ title: "viewWillLayoutSubviews"
 modified:
 categories: blog
 excerpt:
-tags: [UIKit, instance method]
+tags: [UIKit, UIViewController, instance method]
 image:
   feature:
 date: 2017-01-07T16:19:00-04:00
