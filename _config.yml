@@ -1,7 +1,7 @@
 # Site wide configuration
 
 title: iOSHong Blog
-locale: en_US
+locale: ko
 description: 애플 개발자 문서 한글 번역
 logo: site-logo.png
 search: true
