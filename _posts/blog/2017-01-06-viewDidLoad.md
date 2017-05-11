@@ -7,7 +7,7 @@ excerpt:
 tags: [UIKit, instance method]
 image:
   feature:
-date: 2017-01-06T12:50:00-04:00
+date: 2017-01-06T12:50:00+09:00
 ---
 
 뷰 컨트롤러가 뷰 계층을 메모리에 적재할 때 이 메서드는 불린다.
