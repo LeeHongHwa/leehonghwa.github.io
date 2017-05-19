@@ -7,7 +7,7 @@ excerpt:
 tags: [UIKit, UIViewController, instance method]
 image:
   feature:
-date: 2017-01-07T16:19:00-04:00
+date: 2017-01-07T16:19:00+09:00
 ---
 **이 메서드는 뷰 컨트롤러의 뷰가 자식 뷰들을 배치하기 직전에 불린다.**
 
