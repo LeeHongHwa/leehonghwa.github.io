@@ -25,10 +25,10 @@ UIViewControllerTransitioningDelegate 프로토콜을 따르는 delegate 객체�
 user interaction에 뷰 컨트롤러의 전환을 추가하기 위해서 UIViewControllerInteractiveTransitioning 프로토콜을 따르는 커스텀 객체 인 interactive animator 객체와 함께 애니메이터 객체를 사용해야합니다.
 interactive 전환에 관한 자세한 내용은 [UIViewControllerInteractiveTransitioning][UIViewControllerInteractiveTransitioning]봐라.
 
-참고: [https://developer.apple.com/reference/uikit/uiviewcontroller/1621437-viewwilllayoutsubviews?language=objc][apple-doc]
+참고: [https://developer.apple.com/reference/uikit/uiviewcontrollerinteractivetransitioning?language=objc][apple-doc]
 
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
 [UIViewControllerInteractiveTransitioning]: https://developer.apple.com/reference/uikit/uiviewcontrollerinteractivetransitioning?language=objc
-[apple-doc]: https://developer.apple.com/reference/uikit/uiviewcontroller/1621437-viewwilllayoutsubviews?language=objc
+[apple-doc]: https://developer.apple.com/reference/uikit/uiviewcontrollerinteractivetransitioning?language=objc
