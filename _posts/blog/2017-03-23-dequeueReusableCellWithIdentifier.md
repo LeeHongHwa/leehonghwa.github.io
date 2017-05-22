@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "dequeue​Reusable​Cell​With​Identifier:​"
+title: "dequeueReusableCellWithIdentifier:"
 modified:
 categories: blog
 excerpt:
@@ -9,11 +9,11 @@ image:
   feature:
 date: 2017-03-23T00:48:00+09:00
 ---
-**index path에서 지정된 row가 화면의 특정 위치에 올 때까지 테이블 뷰를 스크롤한다.**
+**식별자로 지정된 재사용 가능한 테이블 뷰 셀 객체를 반환한다.**
 
 ----
 ### 파라미터
-iidentifier: 재사용될 셀 객체를 나타내는 스트링. 이 파라미터는 nil이 아니다.
+identifier: 재사용될 셀 객체를 나타내는 스트링. 이 파라미터는 nil이 아니다.
 
 ### 리턴
 식별자와 연관 있는 UITableViewCell 객체이거나 재사용 셀 큐에 식별자와 관련된 셀이 없는 경우에는 nil을 반환한다.

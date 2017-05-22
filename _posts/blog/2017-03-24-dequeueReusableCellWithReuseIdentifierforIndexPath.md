@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "dequeue​Reusable​Cell​With​Identifier:​for​Index​Path:​"
+title: "dequeueReusableCellWithReuseIdentifier:forIndexPath:"
 modified:
 categories: blog
 excerpt:
@@ -21,7 +21,7 @@ indexPath: 셀의 위치를 나타내는 index path. data source에게 셀에 �
 재사용 식별자와 관련있는 UITableViewCell 객체. 항상 유요한 셀을 반환한다.
 
 ### 해설
-성능적인 이유로 인해 테이블 뷰가 tableView:cellForRowAtIndexPath: 메서드 안에서 셀을 row에 힐딩힐 때 테이블 뷰의 data source는 일반적으로 UITableViewCell 객체를 재사용 한다. 테이블 뷰는 data source가 재사용을 위해 표시 한 UITableViewCell 객체의 queue 또는 목록을 유지한. 테이블 뷰에게 새로운 셀을 제공해 달라고 요청받았을 때 data source 객체는 이 메서드를 호출한다. 이전에 등록한 class 또는 nib 파일을 사용해 새로운 셀을 만들거나 이용 가능한 셀 이 있다면 이 메서드는 기존의 셀을 dequeue 한다.
+성능적인 이유로 인해 테이블 뷰가 tableView:cellForRowAtIndexPath: 메서드 안에서 셀을 row에 할당 할 때 테이블 뷰의 data source는 일반적으로 UITableViewCell 객체를 재사용 한다. 테이블 뷰는 data source가 재사용을 위해 표시 한 UITableViewCell 객체의 queue 또는 목록을 유지한. 테이블 뷰에게 새로운 셀을 제공해 달라고 요청받았을 때 data source 객체는 이 메서드를 호출한다. 이전에 등록한 class 또는 nib 파일을 사용해 새로운 셀을 만들거나 이용 가능한 셀 이 있다면 이 메서드는 기존의 셀을 dequeue 한다.
 
 **중요한 점**<br>
 이 메서드를 호출하기 전에 register​Nib:​for​Cell​Reuse​Identifier:​ 또는 register​Class:​for​Cell​Reuse​Identifier:​ 메서드를 사용하여 클래스나 nib file을 등록해야 한다.
