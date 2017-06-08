@@ -32,5 +32,5 @@ NSString 객체는 Unicode canonical equivalence of their code point sequences �
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
-[localizedStandardRangeOfString:]: https://leehonghwa.github.io/blog/blog/localizedStandardRangeOfString/
+[localizedStandardRangeOfString:]: https://leehonghwa.github.io/blog/localizedStandardRangeOfString/
 [apple-doc]: https://developer.apple.com/documentation/foundation/nsstring/1410144-rangeofstring
