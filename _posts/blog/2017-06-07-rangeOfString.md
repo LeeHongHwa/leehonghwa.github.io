@@ -25,11 +25,12 @@ NSString 객체는 Unicode canonical equivalence of their code point sequences �
 
 > **중요한 점**
 >
-> 사용자에게 제공되는 텍스트로 작업 할 때 이 메서드 대신에 localizedStandardRangeOfString: 메서드를 사용해라.
+> 사용자에게 제공되는 텍스트로 작업 할 때 이 메서드 대신에 [localizedStandardRangeOfString:][localizedStandardRangeOfString:] 메서드를 사용해라.
 
 참고: [https://developer.apple.com/documentation/foundation/nsstring/1410144-rangeofstring][apple-doc]
 
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
+[localizedStandardRangeOfString:]: https://leehonghwa.github.io/blog/blog/localizedStandardRangeOfString/
 [apple-doc]: https://developer.apple.com/documentation/foundation/nsstring/1410144-rangeofstring
