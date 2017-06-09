@@ -20,7 +20,7 @@ NSRange 구조체는 파라미터와 일치한 첫 번째 부분의 위치와 �
 파라미터와 같은 문자열을 찾을 수 없거나 파라미터가 빈 문자라면("") {NSNotFound, 0}을 반환한다.
 
 ### 해설
-angeOfString : options : 에서 옵션 없이 실행한다.
+[rangeOfString:options:][rangeOfString:options:] 에서 옵션 없이 실행한다.
 NSString 객체는 Unicode canonical equivalence of their code point sequences 를 검사하여 비교된다. 동등한 구성된 문자 시퀀스가 일치하는 경우 반환 된 범위의 길이와 파라미터의 범위가 다를 수 있다.
 
 > **중요한 점**
@@ -32,5 +32,6 @@ NSString 객체는 Unicode canonical equivalence of their code point sequences �
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
+[rangeOfString:options:]: https://leehonghwa.github.io/blog/rangeOfStringOption/
 [localizedStandardRangeOfString:]: https://leehonghwa.github.io/blog/localizedStandardRangeOfString/
 [apple-doc]: https://developer.apple.com/documentation/foundation/nsstring/1410144-rangeofstring
