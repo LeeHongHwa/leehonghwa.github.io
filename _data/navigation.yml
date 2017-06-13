@@ -9,8 +9,12 @@
 - title: Blog
   url: /blog/
 
+- title: Algorithm
+  url: /algorithm/
+
 - title: Tags
   url: /tags/
+
 #- title: Theme Setup
 #  url: /theme-setup/
 
