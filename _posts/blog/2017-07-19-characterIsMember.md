@@ -4,7 +4,7 @@ title: "characterIsMember:"
 modified:
 categories: blog
 excerpt:
-tags: [Objective-C, Function]
+tags: [NSCharacterSet, Instance Method]
 image:
 feature:
 date: 2017-07-19T23:05:00+09:00
