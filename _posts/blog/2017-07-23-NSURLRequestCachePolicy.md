@@ -3,7 +3,7 @@ layout: post
 title: "NSURLRequestCachePolicy"
 modified:
 categories: blog
-excerpt: HTTP 프로토콜의 경우 NSURLRequestUseProtocolCachePolicy 정책의 동작이 NSURLRequest에서 일어난다.
+excerpt: 캐시된 응답을 처리하는 방법을 나타내는 상수.
 tags: [NSURLRequest, Enumeration]
 image:
 feature:
