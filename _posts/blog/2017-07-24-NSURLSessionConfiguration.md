@@ -3,7 +3,7 @@ layout: post
 title: "NSURLSessionConfiguration"
 modified:
 categories: blog
-excerpt: 캐시된 응답을 처리하는 방법을 나타내는 상수.
+excerpt:
 tags: [Foundation, URL Loading System, Class]
 image:
 feature:
