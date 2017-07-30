@@ -15,11 +15,11 @@ date: 2017-07-27T23:15:00+09:00
 ---
 > **더 이상 사용되지 않는 메서드**
 >
-> 이 메서드 대신에 application:openURL:options: 메서드를 사용해라.
+> 이 메서드 대신에 [application:openURL:options:][application:openURL:options:] 메서드를 사용해라.
 
 ### 파라미터
  - **application:** 싱글턴 앱 객체.
- - **url:** 보여주려고 하는 URL 리소스. 이 리소스는 네트워크 리소스 또는 파일이 될 수 있다. Apple에 등록 된 URL 체계에 대한 정보는 Apple URL Scheme Reference를 참조해라.
+ - **url:** 보여주려고 하는 URL 리소스. 이 리소스는 네트워크 리소스 또는 파일이 될 수 있다. Apple에 등록 된 URL 체계에 대한 정보는 [Apple URL Scheme Reference][Apple URL Scheme Reference]를 참조해라.
  - **sourceApplication:** URL을 열도록 앱을 요청하는 앱의 번들 ID.
  - **annotation:** 수신앱과 정보를 교환하기 위해 소스 앱이 제공하는 [프로퍼티 목록][property-list].
 
@@ -38,6 +38,10 @@ AirDrop 또는 document interaction controller를 통해 응용 프로그램에 
 참고: [https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623073-application?language=objc][apple-doc]
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
+
+[application:openURL:options:]: https://leehonghwa.github.io/blog/applicationOpenURLOptions/
+
+[Apple URL Scheme Reference]: https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899
 
 [protectedDataAvailable]: https://developer.apple.com/documentation/uikit/uiapplication/1622925-protecteddataavailable?language=objc
 
