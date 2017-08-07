@@ -30,10 +30,10 @@ nibName 파라미터를 nil로 지정하고 loadView 메서드를 override 하�
 
 뷰 컨트롤러가 뷰를 로드하는 방법에 대한 자세한 내용은 [View Controller Programming Guide for iOS][View Controller Programming Guide for iOS] 참고해라.
 
-참고: [https://developer.apple.com/documentation/uikit/uiresponder/1621113-becomefirstresponder?language=objc][apple-doc]
+참고: [https://developer.apple.com/documentation/uikit/uiviewcontroller/1621359-initwithnibname?language=objc][apple-doc]
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
 [nibName]: https://developer.apple.com/documentation/uikit/uiviewcontroller/1621487-nibname?language=objc
 [View Controller Programming Guide for iOS]: https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457
-[apple-doc]: https://developer.apple.com/documentation/uikit/uiresponder/1621113-becomefirstresponder?language=objc
+[apple-doc]: https://developer.apple.com/documentation/uikit/uiviewcontroller/1621359-initwithnibname?language=objc
