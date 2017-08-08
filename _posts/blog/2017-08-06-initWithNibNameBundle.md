@@ -34,6 +34,6 @@ nibName 파라미터를 nil로 지정하고 loadView 메서드를 override 하�
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
-[nibName]: https://developer.apple.com/documentation/uikit/uiviewcontroller/1621487-nibname?language=objc
+[nibName]: https://leehonghwa.github.io/blog/nibName/
 [View Controller Programming Guide for iOS]: https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457
 [apple-doc]: https://developer.apple.com/documentation/uikit/uiviewcontroller/1621359-initwithnibname?language=objc
