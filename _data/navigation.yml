@@ -18,5 +18,8 @@
 #- title: Theme Setup
 #  url: /theme-setup/
 
+- title: HIG
+  url: /HIG/
+
 - title: Search
   url: /search/
