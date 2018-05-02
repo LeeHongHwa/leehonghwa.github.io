@@ -131,7 +131,7 @@ operation queue에 넣은 operation 을 취소 요청을 하려면 cancel() 메�
     Suspending 상태 이면 finished 상태가 아니므로 memory leak이 날 수 있다.
 
 ##### Determining Execution Order
-operation의 의존성과, 우선순위, 태에 따라 실행되며, 우선순위가 같고 상태가 isReady == true 이면 queue에 등록된 순서대로 실행된다.
+operation의 의존성과, 우선순위 상태에 따라 실행되며, 우선순위가 같고 상태가 isReady == true 이면 queue에 등록된 순서대로 실행된다.
 
 ##### Canceling Operations
 cancel() 메서드는 취소 요청을 하는 거지 바로 취소를 한 것은 아니다.<br>
