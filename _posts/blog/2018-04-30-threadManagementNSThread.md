@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Thread Management-1"
+title: "Thread Management(1-1)"
 modified:
 categories: blog
 excerpt:
@@ -9,11 +9,11 @@ image:
   feature:
 date: 2018-04-30T08:50:00+09:00
 ---
-**왜 나는 GCD를 썼을까?**
+**왜 나는 GCD를 썼을까?(Thread)**
 
 ----
 
-### iOS에서 Thread 관리하기-1(NSThread)
+### iOS에서 Thread 관리하기 1-1 (NSThread)
 
 비동기 작업을 해야지 하면 습관적으로
 
