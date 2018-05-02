@@ -153,6 +153,7 @@ OperationQueue 클래스는 KVC, KVO를 준수한다.
 ##### Thread Safety
 multi thread(operation 하나당 thread 하나)에서 사용하는 것이 객체에 대한 접근을 동기화할 수 있어서 안전하다.
 Dispatch framework를 사용하여 queue에 들어있는 작업들을 시작한다.
+
 ---
 
 제 마음대로 사용해 보겠습니다.
