@@ -161,22 +161,28 @@ Dispatch framework를 사용하여 queue에 들어있는 작업들을 시작한�
 ``` swift
 class OperationViewController: UIViewController {
     
-    let operationQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "operation-queue"
-        //한번에 몇개 실행할건가?
-        queue.maxConcurrentOperationCount = 2
-        return queue
-    }()
+    let imageOperationQueue = ImageOperationQueue()
     
     let taskNumber = ["1", "2", "3", "4", "5", "6", "7", "8"]
     let taskString = ["a", "b", "c", "d", "e", "f", "g", "h"]
+    
+    let imageDataArray: [ImageData] = {
+        var _imageDataArray = [ImageData]()
+        for _ in 0..<10 {
+            _imageDataArray.append(ImageData(state: .new, url: URL(string: "http://leehonghwa.github.io/")!))
+        }
+        return _imageDataArray
+    }()
     
     @IBAction func didTapOperationTriggerButton(_ sender: UIButton) {
         /*
             add operation 할 때마다 thread를 만들어 준다.
             operation이 끝나면 thread를 없애준다.
          */
+        
+        //************************
+        //***** 내 마음대로 예제 ******
+        //************************
         
         /*
          closure
@@ -192,22 +198,37 @@ class OperationViewController: UIViewController {
         }
          */
         
-        //Operation subClass
+        /*
+        Operation subClass
         operationQueue.addOperation(CustomOperation(taskElement: taskNumber))
         operationQueue.addOperation(CustomOperation(taskElement: taskString))
+         */
         
         /*
          Start
          현재 메서드를 호출하는 thread에서 실행됨
          CustomOperation(taskElement: taskNumber).start()
          */
+        
+        //**********************
+        //***** 실용적인 예제 ******
+        //***********************
+        
+        //다운로드
+        imageDataArray.enumerated().forEach { (offset, imageData) in
+            let operation = ImageOperation(imageData: imageData)
+            //dependency 추가
+            ResizeImageOperation().addDependency(operation)
+            imageOperationQueue.downloadImage(id: offset, operation: operation)
+        }
+        //취소
+        imageOperationQueue.cancelDownloadImage(id: 1)
+        
     }
 }
 
 class CustomOperation: Operation {
-    var flag = 0
     let taskElement: [String]
-    
     init(taskElement: [String]) {
         self.taskElement = taskElement
     }
@@ -221,15 +242,8 @@ class CustomOperation: Operation {
         for element in self.taskElement {
             print("\(Thread.current): \(element)")
         }
-        
-        flag += 1
-        if flag == 3 {
-            //테스트를 위해서 operation안에 flag를 넣었다.
-            cancel()
-        }
         //cancel을 한다고 현재 진행중인 메서드가 끝나는것은 아니므로 이렇게 상태값을 확인한뒤 return 시켜줘야한다.
         guard !isCancelled else { return }
-        task()
     }
 }
 
@@ -237,17 +251,21 @@ class CustomOperation: Operation {
 class ImageData {
     enum State {
         case new
+        case downloading
         case downloaded
     }
     
     var state: State
-    var image: UIImage
+    let url: URL
+    var image: UIImage?
     
-    init(state: State, image: UIImage) {
+    init(state: State, url: URL, image: UIImage? = nil) {
         self.state = state
+        self.url = url
         self.image = image
     }
 }
+
 //이런식으로도 사용할 수 있을것 같아요
 class ImageOperation: Operation {
     let imageData: ImageData
@@ -260,11 +278,40 @@ class ImageOperation: Operation {
         if imageData.state == .new {
             //시작하기전 검사
             guard !isCancelled else { return }
-            //imageData.image = 이미지 다운로드
+            imageData.state = .downloading
+            imageData.image = ImageService.downloadImage(url: imageData.url)
             //오래걸리는 작업 후 검사
             guard !isCancelled else { return }
             imageData.state = .downloaded
         }
+    }
+}
+
+class ImageOperationQueue {
+    private var currentOperation = [Int: ImageOperation]()
+    
+    let operationQueue: OperationQueue = {
+        var queue = OperationQueue()
+        queue.name = "operation-queue"
+        //한번에 몇개 실행할건가?
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
+    
+    func cancelDownloadImage(id: Int) {
+        guard let operation = currentOperation[id], operation.imageData.state != .downloaded else { return }
+        currentOperation.removeValue(forKey: id)
+        operation.cancel()
+    }
+    
+    func downloadImage(id: Int, operation: ImageOperation) {
+        if currentOperation[id] == nil {
+            currentOperation[id] = operation
+        }
+        operation.completionBlock = { [weak self] in
+            self?.currentOperation.removeValue(forKey: id)
+        }
+        operationQueue.addOperation(operation)
     }
 }
 ```
