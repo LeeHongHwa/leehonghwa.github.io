@@ -56,7 +56,7 @@ KVO의 알림이 어느 thread에서 실행될지 몰라 cocoa binding(view와 �
 <sub>Important: Cocoa bindings is available to Cocoa Objective-C applications running OS X version 10.3 and later<sub>
 
 ##### Multicore Considerations
-hread는 stack만이 독립된 자원이기 때문에 다른 메모리에 있는 자원들을 공유할 때 안전해야 한다. operation 클래스에서는 멀티 코어까지 고려해서 안전하게 메서드를 호출할 수 있다. 그렇지만 operation 클래스를 상속받고 메서드를 재정의 하면 내가 알아서 thread-safe 하게 동기적으로 처리해야 한다.
+thread는 stack만이 독립된 자원이기 때문에 다른 메모리에 있는 자원들을 공유할 때 안전해야 한다. operation 클래스에서는 멀티 코어까지 고려해서 안전하게 메서드를 호출할 수 있다. 그렇지만 operation 클래스를 상속받고 메서드를 재정의 하면 내가 알아서 thread-safe 하게 동기적으로 처리해야 한다.
 
 ##### Asynchronous VS Synchronous Operations
 queue에 넣지 않고 수동으로 시작하는 경우는 기본으로는 별도의 thread를 만들지 않고 현재 thread에서 동기적으로 실행된다. 반면 비동기 작업을 하려면 별도의 thread에서 비동기 메서드로 작업을 해야 한다.
@@ -80,10 +80,10 @@ main()
 ###### concurrently
 많은 메서드를 재정의 해야 한다. 아래 최소한 이건 재정의 해야 한다고 쓰여있는 목록이다.
 
-start()
-isAsynchronous
-isExecuting
-isFinished
+    start()
+    isAsynchronous
+    isExecuting
+    isFinished
 
 start()에서 비동기 방식으로 작업을 하고 isExecuting 프로퍼티도 thread-safe 하게 설정하고 적절하게 KVO 알림을 보내야 한다.
 
