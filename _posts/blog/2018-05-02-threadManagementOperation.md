@@ -322,8 +322,7 @@ class ImageOperationQueue {
 	3. KVO를 제공해 상태를 알기 쉽다.
 	4. suspend하기 좋다.
 	5. operation을 상속하고 그안에서 작업을 하기 때문에 캡슐화 하기좋다.
-    6. thread를 작업단위로 만들어서 오버헤드가 클 것같다.
-    7. thread-safe 하다.
+    6. thread-safe 하다.
 
 <sub>잘못된 부분이 있다면 알려주시면 바로 수정하겠습니다.</sub>
 
