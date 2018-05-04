@@ -223,7 +223,12 @@ class OperationViewController: UIViewController {
         }
         //취소
         imageOperationQueue.cancelDownloadImage(id: 1)
+
+        //일시정지도 가능하다
+        imageOperationQueue.suspend()
         
+        //시작
+        imageOperationQueue.resume()
     }
 }
 
@@ -312,6 +317,14 @@ class ImageOperationQueue {
             self?.currentOperation.removeValue(forKey: id)
         }
         operationQueue.addOperation(operation)
+    }
+
+    func suspend() {
+        operationQueue.isSuspended = true
+    }
+    
+    func resume() {
+        operationQueue.isSuspended = false
     }
 }
 ```

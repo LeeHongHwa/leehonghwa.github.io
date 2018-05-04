@@ -203,8 +203,32 @@ app을 실행하면 자동으로 main queue를 만든다. 이 queue는 serial qu
 ```
 
 ---
+코드를 안보실 수도 있으므로 정리를 해보겠습니다.
 
-위에까지만 쓰려고 했으나 쓰고 있던 오픈소스가 궁금해서 CocoaAsyncSocket를 살펴보겠습니다.<br>
+#### 4가지 조합
+##### 1. (serial + sync) (총 1개 thread)
+`순차적으로 실행`이 되고 main thread에서 실행이 됨. queue가 마음대로 thread pool 방식으로 관리를 하는 것 같다.<br>
+
+##### 2. (serial + async) (총 2개 thread)
+각각의 queue는 `single thread`를 가지고 `task가 끝나면 다음 task`를 진행한다.<br>
+즉 1, 2번의 작업순서는 다를 수 있지만 `각 queue에서 처리되는 task의 순서가 같다`.<br>
+
+##### 3. (concurrent + sync) (총 1개 thread)
+`순차적으로 실행`이 되고 main thread에서 실행이됨. queue가 마음대로 thread pool방식으로 관리를 하는것같다.<br>
+공부하기 전에는 1번과 2번이 번갈아가면서 실행될 줄 알았으나 1번이 끝난뒤에 2번이 실행된다. 또한 main thread에서 실행이되서 UI가 굳어버렸다.<br>
+그 이유는 `sync는 work item이 끝날때 까지 program은 기다리기 때문이다.`<br>
+
+##### 4. (concurrent + async) (총 4개 thread)
+각각의 queue는 `multi thread`를 가지고 작업당 하나의 thread를 가지고 작업을 실행한다.<br>
+`각기 다른 순서`대로 실행된다.<br>
+
+##### 정리
+    queue: serial vs concurrent == single thread vs multi thread<br>
+    work item: sync vs async == 모든게 멈추고 실행 구문안에 있는 작업이 다 끝난 후 반환 vs 실행 구문 메서드를 즉각 반환
+
+---
+
+위에까지만 쓰려고 했으나 쓰고 있던 오픈소스가 궁금해서 [CocoaAsyncSocket][CocoaAsyncSocket]를 살펴보겠습니다.<br>
 CocoaAsyncSocket에서는 dispatch source를 많이 사용하는데요, 그래서 [dispatch source][Dispatch Sources] 문서를 보겠습니다.<br>
 문서에 사용방법도 있어서 따로 사용해보지는 않겠습니다.<br>
 여기서부터는 objc를 봐야겠네요. 어느 정도 보실 수 있을 거라 생각하고 이해한 대로 설명하겠습니다.
@@ -339,6 +363,9 @@ dispatch source는 dispatch queue와 마찬가지로 dispatch_retain 및 dispatc
 <br>
 이 아래부터는 예제라서 굳이 적지 않겠습니다.
 
+QOS는 Concurrency Programming Guide를 볼 떄 정리하겠습니다.<br>
+아 적다보니 DispatchGroup이 빠졌네요 가능한 빨리 공부해서 채워놓겠습니다.
+
 ##### 느낀점
 	1. 간단하게 작성할 수 있다.
 	2. 유연하게 작성이 가능하다.(조합할 수 있는게 많다.)
@@ -349,4 +376,5 @@ dispatch source는 dispatch queue와 마찬가지로 dispatch_retain 및 dispatc
 
 
 [Dispatch]: https://developer.apple.com/documentation/dispatch
+[CocoaAsyncSocket]: https://github.com/robbiehanson/CocoaAsyncSocket
 [Dispatch Sources]: https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/GCDWorkQueues/GCDWorkQueues.html
