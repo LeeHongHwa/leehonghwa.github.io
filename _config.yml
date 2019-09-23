@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title: iOSHong Blog
+title: lyhonghwa Blog
 locale: ko
-description: 애플 개발자 문서 한글 번역
+description: ""
 logo: site-logo.png
 search: true
 url: https://leehonghwa.github.io
